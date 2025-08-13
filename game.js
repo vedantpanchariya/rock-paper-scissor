@@ -49,7 +49,7 @@ function playRound(humanChoice,compChoice){
     }else if(human=="scissor"&&comp=="paper"){
         console.log("You won");
         let result = ++HumanScore;
-        console.log(" Score is"+" "+HumanScore);
+        console.log("Human Score is"+" "+HumanScore);
         console.log("\n")
     }else if(human=="rock"&&comp=="rock"){
         console.log("It's a Tie");
