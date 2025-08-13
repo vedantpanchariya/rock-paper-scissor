@@ -53,15 +53,12 @@ function playRound(humanChoice,compChoice){
         console.log("\n")
     }else if(human=="rock"&&comp=="rock"){
         console.log("It's a Tie");
-        console.log(HumanScore);
         console.log("\n")
     }else if(human=="paper"&&comp=="paper"){
         console.log("It's a Tie");
-        console.log(HumanScore);
         console.log("\n")
     }else if(human=="scissor"&&comp=="scissor"){
         console.log("It's a Tie");
-        console.log(HumanScore);
         console.log("\n")
     }
    
