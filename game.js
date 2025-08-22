@@ -2,7 +2,7 @@ let HumanScore = 0;
 let CompScore = 0;
 
 function getCompChoice(){
-  let choices = ["rock","paper","scissor"]
+  let choices = ["✊🏻","🖐🏻","✌🏻"]
   let value=Math.floor(Math.random() * choices.length);
   let word = choices[value];
   return word;
@@ -20,27 +20,27 @@ const paper = document.getElementById('paper');
 const scissor = document.getElementById('scissor');
 const start = document.getElementById('restart');
 
-rock.addEventListener('click',()=> playRound("rock"));
-paper.addEventListener('click',()=> playRound("paper"));
-scissor.addEventListener('click',()=> playRound("scissor"));
+rock.addEventListener('click',()=> playRound("✊🏻"));
+paper.addEventListener('click',()=> playRound("🖐🏻"));
+scissor.addEventListener('click',()=> playRound("✌🏻"));
 start.addEventListener('click',restart);
 
 
-function playRound(human,compChoice){
+function playRound(human,compChoice){ 
     
     let comp=getCompChoice();
 
     if(human== comp){
 
         result = "It's a Tie"
-    }else if((human=="rock"&&comp=="paper")||
-    (human=="scissor"&&comp=="paper")||
-    (human=="rock"&&comp=="scissor")){
+    }else if((human=="🖐🏻"&&comp=="✊🏻")||
+    (human=="✌🏻"&&comp=="🖐🏻")||
+    (human=="✊🏻"&&comp=="✌🏻")){
         HumanScore++;
         result = "You Win !!";
-    }else if((human=="scissor"&&comp=="rock")||
-    (human=="paper"&&comp=="scissor")||
-    (human=="rock"&&comp=="paper")){
+    }else if((human=="✌🏻"&&comp=="✊🏻")||
+    (human=="🖐🏻"&&comp=="✌🏻")||
+    (human=="✊🏻"&&comp=="🖐🏻")){
         CompScore++;
         result = "You Lose !!";
     }
@@ -56,7 +56,7 @@ function playRound(human,compChoice){
 
     if(HumanScore === 5 || CompScore === 5 ){
     if(HumanScore > CompScore){
-        outcome.textContent = "Finally!!!You won!!";
+        outcome.textContent = "Finally!!! You won!!";
     }
     else{
         outcome.textContent = "LOSER !!!";
