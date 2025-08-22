@@ -1,0 +1,56 @@
+body{
+    display: flex;
+    align-items: center;
+    height: 600px;
+    
+    flex-direction: column;
+    background-color: black;
+    gap :20px;
+}
+
+button{
+    font-size: 50px;
+    padding: 0px;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    height: 50px;
+    width: 80px;
+    font-size: 80px;
+}
+.header{
+    background-color: black;
+    color: yellow;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1500px;  
+    height: 100px;
+    margin:0;
+    font-size : 80px;
+    border: 1px solid white;
+    margin-bottom: 150px;
+}
+#result{
+    font-size : 30px;
+    color : white;
+}
+
+#restart{
+    border: 1px;
+    background-color: yellow;
+    width: 110px;
+    font-size: 20px;
+    border-radius: 12px;
+    color: white;
+    font-weight:900;
+}
+#Choices{
+    color: white;
+    font-size: 30px;
+    display: flex;
+    gap: 600px;
+}
+
+

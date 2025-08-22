@@ -1,5 +1,5 @@
-var HumanScore = 0;
-var CompScore = 0;
+let HumanScore = 0;
+let CompScore = 0;
 
 function getCompChoice(){
   let choices = ["rock","paper","scissor"]
@@ -9,72 +9,81 @@ function getCompChoice(){
 
 }
 
-function getHumanChoice(){
-    let human = prompt("Enter your choice");
-    let small = human.toLowerCase;
-    return human;
-}
+const outcome = document.getElementById('outcome');
+const user = document.getElementById('user');
+const comp = document.getElementById('comp');
+const score = document.getElementById('score');
+const hc = document.getElementById('hc');
+const cc = document.getElementById('cc');
+const rock  = document.getElementById('rock');
+const paper = document.getElementById('paper');
+const scissor = document.getElementById('scissor');
+const start = document.getElementById('restart');
 
-function playRound(humanChoice,compChoice){
-    let human=getHumanChoice();
-    console.log("You chose"+" "+human);
+rock.addEventListener('click',()=> playRound("rock"));
+paper.addEventListener('click',()=> playRound("paper"));
+scissor.addEventListener('click',()=> playRound("scissor"));
+start.addEventListener('click',restart);
+
+
+function playRound(human,compChoice){
+    
     let comp=getCompChoice();
-    console.log("Computer chose"+" "+comp);
 
-    if(human=="rock"&&comp=="paper"){
-        console.log("You lose");
-        let result = ++CompScore;
-        console.log("Computer Score is"+" "+CompScore);
-        console.log("\n")
-    }else if(human=="rock"&&comp=="scissor"){
-        console.log("You won");
-        let result = ++HumanScore;
-        console.log("Human Score is"+" "+HumanScore);
-        console.log("\n")
-    }else if(human=="scissor"&&comp=="rock"){
-        console.log("You lose");
-        let result = ++CompScore;
-        console.log("Computer Score is"+" "+CompScore);
-        console.log("\n")
-    }else if(human=="paper"&&comp=="rock"){
-        console.log("You won");
-        let result = ++HumanScore;
-        console.log("Human Score is"+" "+HumanScore);
-        console.log("\n")
-    }else if(human=="paper"&&comp=="scissor"){
-        console.log("You lose");
-        let result = ++CompScore;
-        console.log("Computer Score is"+" "+CompScore);
-        console.log("\n")
-    }else if(human=="scissor"&&comp=="paper"){
-        console.log("You won");
-        let result = ++HumanScore;
-        console.log("Human Score is"+" "+HumanScore);
-        console.log("\n")
-    }else if(human=="rock"&&comp=="rock"){
-        console.log("It's a Tie");
-        console.log("\n")
-    }else if(human=="paper"&&comp=="paper"){
-        console.log("It's a Tie");
-        console.log("\n")
-    }else if(human=="scissor"&&comp=="scissor"){
-        console.log("It's a Tie");
-        console.log("\n")
+    if(human== comp){
+
+        result = "It's a Tie"
+    }else if((human=="rock"&&comp=="paper")||
+    (human=="scissor"&&comp=="paper")||
+    (human=="rock"&&comp=="scissor")){
+        HumanScore++;
+        result = "You Win !!";
+    }else if((human=="scissor"&&comp=="rock")||
+    (human=="paper"&&comp=="scissor")||
+    (human=="rock"&&comp=="paper")){
+        CompScore++;
+        result = "You Lose !!";
     }
-   
-}
-function game(){
-    for(i=0;i<5;i++){
-        playRound();
+    hchoice = "You Chose :"+" "+human;
+    cchoice = "I Chose :"+" "+comp;
+    cc.textContent = cchoice;
+    hc.textContent = hchoice;
+    userscore = `Score  ${HumanScore} : ${CompScore}`;
+    score.textContent = userscore;
+    outcome.textContent = result;
+
+
+
+    if(HumanScore === 5 || CompScore === 5 ){
+    if(HumanScore > CompScore){
+        outcome.textContent = "Finally!!!You won!!";
     }
+    else{
+        outcome.textContent = "LOSER !!!";
+    }
+    disable();
 }
-game();
-if(HumanScore > CompScore){
-    console.log("Human Win");
-}else if(HumanScore == CompScore){
-    console.log("It's a Tie")
 }
-else{
-    console.log("You lose");
+
+function disable(){
+    rock.disabled = true;
+    paper.disabled = true;
+    scissor.disabled = true;
+}
+function enable(){
+    rock.disabled = false;
+    paper.disabled =false;
+    scissor.disabled = false;
+}
+
+function restart(){
+    HumanScore = 0;
+    CompScore = 0;
+    outcome.textContent = '';
+    score.textContent = `Score ${HumanScore}:${CompScore}`
+    enable();
+    hc.textContent = ' ';
+    cc.textContent = ' ';   
+    
 }
 
